@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'theme.dart'; 
+import 'package:shamo/pages/sign_in_page.dart';
+import 'package:shamo/pages/splash_page.dart';
+
 
 void main() {
   runApp(const MyApp()); 
@@ -12,29 +14,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget
  build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Shamo App',
+      routes: {
+        '/': (context) => const SplashPage(),
+        '/sign-in': (context) => const SignInPage(),
 
-      home: HomePage(), 
+      },
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Halaman Utama'), 
-      ),
-      body: Center(
-        child: Text('Selamat datang di halaman utama!',
-          style: primaryTextStyle, 
-        ),
-      ),
-    );
-  }
-}
