@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +14,7 @@ const Color backgroundColor2 = Color(0xff2B2937);
 const Color backgroundColor3 = Color(0xff242231);
 const Color primaryTextColor = Color(0xffF1F0F2);
 const Color secondaryTextColor = Color(0xff999999);
+const Color subtitleColor = Color(0xff504F5E);
 
 // text style
 TextStyle primaryTextStyle = GoogleFonts.poppins(
@@ -25,6 +25,12 @@ TextStyle secondaryTextStyle = GoogleFonts.poppins(
 );
 TextStyle priceTextStyle = GoogleFonts.poppins(
   color: priceColor,
+);
+TextStyle subtitleTextStyle = GoogleFonts.poppins(
+  color: subtitleColor,
+);
+TextStyle purpleTextStyle = GoogleFonts.poppins(
+  color: primaryColor,
 );
 
 // font weight
