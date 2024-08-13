@@ -23,7 +23,7 @@ class MainPage extends StatelessWidget {
     Widget customButtonNav() {
       return ClipRRect(
         borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(20),
+          top: Radius.circular(30),
         ),
         child: BottomAppBar(
           shape: const CircularNotchedRectangle(),
