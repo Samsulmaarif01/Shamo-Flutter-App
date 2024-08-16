@@ -43,61 +43,65 @@ class _MainPageState extends State<MainPage> {
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(30),
         ),
-        child: BottomNavigationBar(
-          backgroundColor: backgroundColor4,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
-          onTap: (value) {
-            setState(() {
-              currentIndex = value;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
-                child: Image.asset(
-                  'assets/Home.png',
-                  width: 21,
-                  color: currentIndex == 0 ? const Color(0xff6C5ECF) : Colors.grey,
+        child: Container(
+          color: backgroundColor4, // Mengatur warna latar belakang
+          padding: const EdgeInsets.only(top: 8.0), // Menambahkan padding atas
+          child: BottomNavigationBar(
+            backgroundColor: backgroundColor4, // Mengatur warna latar belakang BottomNavigationBar
+            type: BottomNavigationBarType.fixed,
+            currentIndex: currentIndex,
+            onTap: (value) {
+              setState(() {
+                currentIndex = value;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
+                  child: Image.asset(
+                    'assets/Home.png',
+                    width: 21,
+                    color: currentIndex == 0 ? const Color(0xff6C5ECF) : Colors.grey,
+                  ),
                 ),
+                label: 'Home',
               ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
-                child: Image.asset(
-                  'assets/Chat Icon.png',
-                  width: 20,
-                  color: currentIndex == 1 ? const Color(0xff6C5ECF) : Colors.grey,
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
+                  child: Image.asset(
+                    'assets/Chat Icon.png',
+                    width: 20,
+                    color: currentIndex == 1 ? const Color(0xff6C5ECF) : Colors.grey,
+                  ),
                 ),
+                label: 'Chat',
               ),
-              label: 'Chat',
-            ),
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
-                child: Image.asset(
-                  'assets/wishlist.png',
-                  width: 20,
-                  color: currentIndex == 2 ? const Color(0xff6C5ECF) : Colors.grey,
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
+                  child: Image.asset(
+                    'assets/wishlist.png',
+                    width: 20,
+                    color: currentIndex == 2 ? const Color(0xff6C5ECF) : Colors.grey,
+                  ),
                 ),
+                label: 'Wishlist',
               ),
-              label: 'Wishlist',
-            ),
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
-                child: Image.asset(
-                  'assets/Profile.png',
-                  width: 18,
-                  color: currentIndex == 3 ? const Color(0xff6C5ECF) : Colors.grey,
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
+                  child: Image.asset(
+                    'assets/Profile.png',
+                    width: 18,
+                    color: currentIndex == 3 ? const Color(0xff6C5ECF) : Colors.grey,
+                  ),
                 ),
+                label: 'Profile',
               ),
-              label: 'Profile',
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
@@ -107,9 +111,11 @@ class _MainPageState extends State<MainPage> {
       floatingActionButton: cardButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: customButtonNav(),
-      body: IndexedStack(
-        index: currentIndex,
-        children: _pages,
+      body: SafeArea(
+        child: IndexedStack(
+          index: currentIndex,
+          children: _pages,
+        ),
       ),
     );
   }
