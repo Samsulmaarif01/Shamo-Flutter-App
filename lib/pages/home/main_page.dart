@@ -44,10 +44,10 @@ class _MainPageState extends State<MainPage> {
           top: Radius.circular(30),
         ),
         child: Container(
-          color: backgroundColor4, // Mengatur warna latar belakang
-          padding: const EdgeInsets.only(top: 8.0), // Menambahkan padding atas
+          color: backgroundColor4, 
+          padding: const EdgeInsets.only(top: 8.0), 
           child: BottomNavigationBar(
-            backgroundColor: backgroundColor4, // Mengatur warna latar belakang BottomNavigationBar
+            backgroundColor: backgroundColor4, 
             type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             onTap: (value) {
@@ -69,7 +69,7 @@ class _MainPageState extends State<MainPage> {
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
+                  padding: const EdgeInsets.only(top: 8.0), 
                   child: Image.asset(
                     'assets/Chat Icon.png',
                     width: 20,
@@ -80,7 +80,7 @@ class _MainPageState extends State<MainPage> {
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
+                  padding: const EdgeInsets.only(top: 8.0), 
                   child: Image.asset(
                     'assets/wishlist.png',
                     width: 20,
@@ -91,7 +91,7 @@ class _MainPageState extends State<MainPage> {
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
+                  padding: const EdgeInsets.only(top: 8.0), 
                   child: Image.asset(
                     'assets/Profile.png',
                     width: 18,
