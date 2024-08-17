@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
             items: [
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: const EdgeInsets.only(top: 8.0), // Menambahkan margin atas
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
                     'assets/Home.png',
                     width: 21,
