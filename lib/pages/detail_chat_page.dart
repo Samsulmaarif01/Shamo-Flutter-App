@@ -8,13 +8,13 @@ class DetailChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor3,
-      appBar: headerr(context),
+      appBar: header(context), 
       bottomNavigationBar: chatInput(),
-      body: Container(), // Tambahkan widget lain di sini jika diperlukan
+      body: Container(),
     );
   }
 
-  AppBar headerr(BuildContext context) {
+  AppBar header(BuildContext context) { 
     return AppBar(
       backgroundColor: backgroundColor1,
       centerTitle: false,
@@ -61,40 +61,98 @@ class DetailChatPage extends StatelessWidget {
     );
   }
 
+  Widget productPreview() {
+    return Container(
+      width: 225,
+      height: 74,
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: backgroundColor5,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: primaryColor),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              'assets/Sepatu.png',
+              width: 54,
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'COURT VISIO...',
+                  style: primaryTextStyle,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                Text(
+                  '\$57,15',
+                  style: priceTextStyle.copyWith(
+                    fontWeight: medium,
+                  ),
+                ),
+              ],
+            ),
+          ),
+           Image.asset('assets/Group 15.png', width: 22,)
+        ],
+      ),
+    );
+  }
+
   Widget chatInput() {
     return Container(
       padding: const EdgeInsets.all(20),
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Container(
-              height: 45,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 12,
-              ),
-               decoration: const BoxDecoration(
-               color: backgroundColor4,
-               borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-               ),
-              child: TextFormField(
-                decoration: InputDecoration.collapsed(
-                  hintText: 'Type a message...',
-                  border: InputBorder.none,
-                  hintStyle: secondaryTextStyle,
+          productPreview(),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  height: 45,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  decoration: const BoxDecoration(
+                    color: backgroundColor4,
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration.collapsed(
+                      hintText: 'Type a message...',
+                      border: InputBorder.none,
+                      hintStyle: subtitleTextStyle,
+                    ),
+                    style: primaryTextStyle,
+                  ),
                 ),
-                style: primaryTextStyle,
               ),
-            ),
+              const SizedBox(
+                width: 20,
+              ),
+              Image.asset(
+                'assets/Send Button.png',
+                width: 45,
+              ),
+            ],
           ),
-         const SizedBox(width: 20,),
-         Image.asset('assets/Send Button.png', width: 45,)
-          // IconButton(
-          //   icon: Icon(Icons.send, color: primaryColor),
-          //   onPressed: () {
-              
-          //   },
-          // ),
         ],
       ),
     );
