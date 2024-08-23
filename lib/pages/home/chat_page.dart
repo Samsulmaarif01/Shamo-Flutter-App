@@ -92,8 +92,8 @@ class ChatPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: defaultMargin,
             ),
-            children: [
-             const ChatTile(),
+            children: const [
+             ChatTile(),
             ],
           ),
         ),

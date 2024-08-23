@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/theme.dart';
+import 'package:shamo/widgets/chat_bubble.dart';
 
 class DetailChatPage extends StatelessWidget {
   const DetailChatPage({super.key});
@@ -8,13 +9,13 @@ class DetailChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor3,
-      appBar: header(context), 
+      appBar: header(context),
       bottomNavigationBar: chatInput(),
-      body: Container(),
+      body: content(),
     );
   }
 
-  AppBar header(BuildContext context) { 
+  AppBar header(BuildContext context) {
     return AppBar(
       backgroundColor: backgroundColor1,
       centerTitle: false,
@@ -107,7 +108,10 @@ class DetailChatPage extends StatelessWidget {
               ],
             ),
           ),
-           Image.asset('assets/Group 15.png', width: 22,)
+          Image.asset(
+            'assets/Group 15.png',
+            width: 22,
+          )
         ],
       ),
     );
@@ -132,7 +136,8 @@ class DetailChatPage extends StatelessWidget {
                   ),
                   decoration: const BoxDecoration(
                     color: backgroundColor4,
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(12)),
                   ),
                   child: TextFormField(
                     decoration: InputDecoration.collapsed(
@@ -157,4 +162,27 @@ class DetailChatPage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget content() {
+  return ListView(
+    padding: const EdgeInsetsDirectional.symmetric(
+      horizontal: defaultMargin,
+    ),
+    children: const [
+     ChatBubble(
+      isSender: true,
+      text: 'Hi, This item is still available?',
+      hasProduct: true,
+     ),
+     ChatBubble(
+      isSender: false,
+      text: 'Good night, This item is only avaliable in size 42 and 43',
+     ),
+     ChatBubble(
+      isSender: true,
+      text: 'Oh ok that is Good',
+     ),
+    ],
+  ); 
 }
