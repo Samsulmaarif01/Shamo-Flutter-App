@@ -26,7 +26,9 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     Widget cardButton() {
       return FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/cart');
+        },
         backgroundColor: secondaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
@@ -44,10 +46,10 @@ class _MainPageState extends State<MainPage> {
           top: Radius.circular(30),
         ),
         child: Container(
-          color: backgroundColor4, 
-          padding: const EdgeInsets.only(top: 8.0), 
+          color: backgroundColor4,
+          padding: const EdgeInsets.only(top: 8.0),
           child: BottomNavigationBar(
-            backgroundColor: backgroundColor4, 
+            backgroundColor: backgroundColor4,
             type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             onTap: (value) {
@@ -62,40 +64,48 @@ class _MainPageState extends State<MainPage> {
                   child: Image.asset(
                     'assets/Home.png',
                     width: 21,
-                    color: currentIndex == 0 ? const Color(0xff6C5ECF) : Colors.grey,
+                    color: currentIndex == 0
+                        ? const Color(0xff6C5ECF)
+                        : Colors.grey,
                   ),
                 ),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: const EdgeInsets.only(top: 8.0), 
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
                     'assets/Chat Icon.png',
                     width: 20,
-                    color: currentIndex == 1 ? const Color(0xff6C5ECF) : Colors.grey,
+                    color: currentIndex == 1
+                        ? const Color(0xff6C5ECF)
+                        : Colors.grey,
                   ),
                 ),
                 label: 'Chat',
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: const EdgeInsets.only(top: 8.0), 
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
                     'assets/wishlist.png',
                     width: 20,
-                    color: currentIndex == 2 ? const Color(0xff6C5ECF) : Colors.grey,
+                    color: currentIndex == 2
+                        ? const Color(0xff6C5ECF)
+                        : Colors.grey,
                   ),
                 ),
                 label: 'Wishlist',
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: const EdgeInsets.only(top: 8.0), 
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
                     'assets/Profile.png',
                     width: 18,
-                    color: currentIndex == 3 ? const Color(0xff6C5ECF) : Colors.grey,
+                    color: currentIndex == 3
+                        ? const Color(0xff6C5ECF)
+                        : Colors.grey,
                   ),
                 ),
                 label: 'Profile',
