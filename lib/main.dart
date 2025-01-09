@@ -1,5 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+// import 'package:shamo/models/user_model.dart'; 
+import 'package:shamo/providers/auth_provider.dart'; 
 import 'package:shamo/pages/card_page.dart';
 import 'package:shamo/pages/checkout_page.dart';
 import 'package:shamo/pages/checkout_success.dart';
@@ -19,24 +21,28 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget
- build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => const SplashPage(),
-        '/sign-in': (context) => const SignInPage(),
-        '/sign-up': (context) => const SignUpPage(),
-        '/home': (context) => const MainPage(),
-        '/detail-chat': (context) => const DetailChatPage(),
-        '/edit-profile': (context) => const EditProfilePage(),
-        '/product': (context) =>  const ProductPages(),
-        '/cart': (context) =>  const CardPage(),
-        '/checkout': (context) =>  const CheckoutPage(),
-        '/checkout-success': (context) =>  const CheckoutSuccessPage(),
-
-      },
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => AuthProvider(), 
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/': (context) => const SplashPage(),
+          '/sign-in': (context) => const SignInPage(),
+          '/sign-up': (context) => SignUpPage(),
+          '/home': (context) => const MainPage(),
+          '/detail-chat': (context) => const DetailChatPage(),
+          '/edit-profile': (context) => const EditProfilePage(),
+          '/product': (context) =>  const ProductPages(),
+          '/cart': (context) =>  const CardPage(),
+          '/checkout': (context) =>  const CheckoutPage(),
+          '/checkout-success': (context) =>  const CheckoutSuccessPage(),
+        },
+      ),
     );
   }
 }
-

@@ -22,6 +22,7 @@ class AuthService {
 
     var response = await http.post(url, headers: headers, body: body);
 
+    print(response.body);
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
       UserModel user = UserModel.fromJson(data['user']);
